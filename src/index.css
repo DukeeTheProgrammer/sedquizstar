@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-paper: #FAF7F0;
+    --color-card: #FFFFFF;
+    --color-parchment: #F3EEE3;
+    --color-ink: #1B2436;
+    --color-ink-soft: #5A6577;
+    --color-ink-faint: #7E8899;
+    --color-academic: #1F6F4E;
+    --color-gold: #C9A227;
+    --color-danger: #DC2626;
+    --color-inkpage-dark: #0B1120;
+    --color-inkcard-dark: #131B2A;
+  }
+
+  [data-theme="dark"] {
+    --color-paper: #0B1120;
+    --color-card: #131B2A;
+    --color-parchment: #172136;
+    --color-ink: #F5F3ED;
+    --color-ink-soft: #9AA5B8;
+    --color-ink-faint: #5C667A;
+    --color-academic: #3FA478;
+    --color-gold: #E3B95A;
+    --color-inkpage-dark: #0B1120;
+    --color-inkcard-dark: #131B2A;
+  }
+
+  html {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  #root {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-md border border-ink/15 bg-card px-4 py-2.5 text-sm font-semibold text-ink transition-colors hover:-translate-y-[1px] hover:border-academic hover:shadow-sm active:translate-y-0 dark:border-white/15 dark:bg-white/5 dark:text-paper dark:hover:border-white/25;
+  }
+
+  .btn-primary {
+    @apply border-academic bg-academic text-white hover:bg-academic hover:brightness-110 hover:text-white dark:border-academic dark:bg-academic dark:text-white;
+  }
+
+  .btn-outline {
+    @apply border-ink/20 bg-transparent hover:border-academic hover:text-academic dark:border-white/20 dark:hover:border-emerald-300 dark:hover:text-emerald-300;
+  }
+
+  .btn-gold {
+    @apply border-gold/50 bg-gold/15 text-ink hover:border-gold hover:bg-gold/25 dark:text-gold;
+  }
+
+  .btn-danger {
+    @apply border-red-600/40 bg-red-600/10 text-red-700 hover:bg-red-600/20 dark:text-red-300;
+  }
+
+  .btn-block {
+    @apply w-full;
+  }
+
+  .btn-sm {
+    @apply px-3 py-1.5 text-xs;
+  }
+
+  .card {
+    @apply rounded-lg border border-ink/10 bg-card p-5 shadow-sm dark:border-white/10 dark:bg-inkcard-dark;
+  }
+
+  .input {
+    @apply rounded-md border border-ink/18 bg-card p-3 w-full dark:border-white/15 dark:bg-inkcard-dark focus:border-academic focus:outline-none focus:ring-1 focus:ring-academic;
+  }
+
+  .label {
+    @apply block text-sm font-semibold text-ink dark:text-paper mb-1.5;
+  }
+
+  .alert-error {
+    @apply rounded-md border border-red-600/30 bg-red-600/10 text-red-700 px-4 py-3 text-sm font-medium dark:border-red-400/30 dark:bg-red-400/10 dark:text-red-200;
+  }
+
+  .alert-success {
+    @apply rounded-md border border-academic/30 bg-academic/10 text-academic px-4 py-3 text-sm font-medium dark:border-emerald-300/30 dark:bg-emerald-300/10 dark:text-emerald-200;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide border border-ink/10 text-ink-soft dark:border-white/10 dark:text-paper/60;
+  }
+
+  .badge-passed {
+    @apply bg-academic/10 text-academic border-academic/20 dark:text-emerald-300;
+  }
+
+  .badge-cbt {
+    @apply bg-gold/15 text-gold border-gold/40 dark:text-gold;
+  }
+
+  .stat-tile {
+    @apply rounded-lg border border-ink/10 bg-card p-5 shadow-sm dark:border-white/10 dark:bg-inkcard-dark;
+  }
+
+  .stat-value {
+    @apply text-3xl font-semibold text-ink dark:text-paper;
+  }
+
+  .stat-label {
+    @apply mt-1 text-sm text-ink-soft dark:text-paper/60;
+  }
+}
+
+@layer utilities {
+  .text-ink { color: var(--color-ink); }
+  .text-paper { color: var(--color-paper); }
+  .text-academic { color: var(--color-academic); }
+  .text-gold { color: var(--color-gold); }
+  .text-ink-soft { color: var(--color-ink-soft); }
+  .text-ink-faint { color: var(--color-ink-faint); }
+  .bg-card { background-color: var(--color-card); }
+  .bg-paper { background-color: var(--color-paper); }
+  .bg-academic { background-color: var(--color-academic); }
+  .border-ink\/10 { border-color: color-mix(in srgb, var(--color-ink) 10%, transparent); }
+  .border-white\/10 { border-color: color-mix(in srgb, var(--color-paper) 10%, transparent); }
+}
