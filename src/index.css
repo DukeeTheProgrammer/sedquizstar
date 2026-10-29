@@ -1,37 +1,35 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #FAF7F0;
+  --color-card: #FFFFFF;
+  --color-parchment: #F3EEE3;
+  --color-ink: #1B2436;
+  --color-ink-soft: #5A6577;
+  --color-ink-faint: #7E8899;
+  --color-academic: #1F6F4E;
+  --color-gold: #C9A227;
+  --color-danger: #DC2626;
+  --color-inkpage-dark: #0B1120;
+  --color-inkcard-dark: #131B2A;
+
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+@theme [data-theme="dark"] {
+  --color-paper: #0B1120;
+  --color-card: #131B2A;
+  --color-parchment: #172136;
+  --color-ink: #F5F3ED;
+  --color-ink-soft: #9AA5B8;
+  --color-ink-faint: #5C667A;
+  --color-academic: #3FA478;
+  --color-gold: #E3B95A;
+}
 
 @layer base {
-  :root {
-    --color-paper: #FAF7F0;
-    --color-card: #FFFFFF;
-    --color-parchment: #F3EEE3;
-    --color-ink: #1B2436;
-    --color-ink-soft: #5A6577;
-    --color-ink-faint: #7E8899;
-    --color-academic: #1F6F4E;
-    --color-gold: #C9A227;
-    --color-danger: #DC2626;
-    --color-inkpage-dark: #0B1120;
-    --color-inkcard-dark: #131B2A;
-  }
-
-  [data-theme="dark"] {
-    --color-paper: #0B1120;
-    --color-card: #131B2A;
-    --color-parchment: #172136;
-    --color-ink: #F5F3ED;
-    --color-ink-soft: #9AA5B8;
-    --color-ink-faint: #5C667A;
-    --color-academic: #3FA478;
-    --color-gold: #E3B95A;
-    --color-inkpage-dark: #0B1120;
-    --color-inkcard-dark: #131B2A;
-  }
-
   html {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: var(--font-sans);
   }
 
   body {
